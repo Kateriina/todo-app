@@ -46,7 +46,11 @@ h1 {
 .todo {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+
+}
+
+
+.todo-list {
 }
 
 input {
@@ -55,9 +59,11 @@ input {
   border-radius: 8px;
   max-width:100%;
 }
+
 input::placeholder{
   color: rgba(0, 8, 54, 0.55);
 }
+
 input:focus {
   outline: none;
   color: #000836;
@@ -94,6 +100,8 @@ button {
   border-radius: 8px;
   border: none;
   font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 ul {
@@ -104,14 +112,16 @@ ul {
 
 li {
   width: 450px;
-  padding: 0.85em;
+  padding: 0.5em;
   text-align: center;
   margin-bottom: 0.5rem;
-  background: #52844c;
+  background: #c0c8f8 ;
+
   letter-spacing: 0.02rem;
   transition: all 0.3s ease-out;
-  border-left: 5px solid #14db07;
+  border-left: 5px solid #000836;
   border-radius: 8px;
+
   color: #000836;
   font-family: Times, Times New Roman, serif;
   font-size: large;
@@ -130,6 +140,7 @@ li:last-child {
 }
 
 .completed {
-  color: red;
   text-decoration: line-through;
+  border-left: 5px solid #14db07;
+  background: #52844c;
 }

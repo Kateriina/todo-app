@@ -7,23 +7,22 @@ import {v4 as uuid} from "uuid";
 function App() {
     const [todo, setTodo] = useState("");
     const [todos, setTodos] = useState([
-/*        {
+        {
             id: 1,
-            title: 'first',
+            title: 'Sleep',
             status: true
         },
         {
             id: 2,
-            title: 'second',
+            title: 'Work',
             status: true
         },
         {
             id: 3,
-            title: 'third',
+            title: 'Read',
             status: false
         },
-
-    */]);
+    ]);
 
     //console.log(todos)
     const addTodo = () => {
@@ -43,15 +42,6 @@ function App() {
         const newTodos = todos.filter(todo => todo.id !== id);
         setTodos(newTodos);
     }
-    /*
-
-      const deleteTodo = (text) => {
-          const newTodos = todos.filter((todo) => {
-              return todo !== text;
-          });
-          setTodos(newTodos);
-      }
-    */
 
     const doneTodo = (id) => {
         const newTodos = todos.filter(todo => {
