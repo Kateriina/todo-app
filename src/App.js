@@ -1,60 +1,75 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
+import TodoInput from "./TodoInput";
+import TodoList from "./TodoList";
+import {v4 as uuid} from "uuid";
 
 function App() {
-  const [todo, setTodo] = useState("");
-  const [todos, setTodos] = useState([]);
-  const  addTodo = () =>{
-    if (todo !== "") {
-      setTodos([...todos, todo]);
-      setTodo("")
+    const [todo, setTodo] = useState("");
+    const [todos, setTodos] = useState([
+/*        {
+            id: 1,
+            title: 'first',
+            status: true
+        },
+        {
+            id: 2,
+            title: 'second',
+            status: true
+        },
+        {
+            id: 3,
+            title: 'third',
+            status: false
+        },
+
+    */]);
+
+    //console.log(todos)
+    const addTodo = () => {
+        if (todo !== "") {
+            setTodos(
+                [...todos, {
+                    id: uuid(),
+                    title: todo,
+                    status: true,
+                }
+                ]);
+            setTodo("")
+        }
     }
-  }
 
-  const deleteTodo = (text) => {
-      const newTodos = todos.filter((todo) => {
-          return todo !== text;
-      });
-      setTodos(newTodos);
-  }
-  return (
-    <div className="App">
-      <h1>ToDo App</h1>
+    const deleteTodo = (id) => {
+        const newTodos = todos.filter(todo => todo.id !== id);
+        setTodos(newTodos);
+    }
+    /*
 
-      <div className="input-wrapper">
-        <input type="text"
-               name="todo"
-               placeholder="Create a new todo"
-               onChange={(e) => {
-               setTodo(e.target.value);
-               }
-               }
+      const deleteTodo = (text) => {
+          const newTodos = todos.filter((todo) => {
+              return todo !== text;
+          });
+          setTodos(newTodos);
+      }
+    */
 
-        />
-        <button className="add-button" onClick={addTodo}>Add</button>
-          {todos?.length > 0 ? (
-          <ul className="todo-list">
-              {todos.map((todo, index) => (
-              <div className="todo">
-                  <li key={index}> {todo}</li>
-                  <button className="delete-button" onClick={() => {deleteTodo(todo)
-                  }}
-                  >
-                      Delete
-                  </button>
-              </div>)) }
-          </ul>
-          ) : (
-              <div className="empty">
-                  <p>No task found</p>
-              </div>
-          )}
+    const doneTodo = (id) => {
+        const newTodos = todos.filter(todo => {
+            if (todo.id == id) {
+                todo.status = !todo.status;
+            }
+            return todos;
+        })
+        setTodos(newTodos);
+    }
 
-
-      </div>
-    </div>
-  );
+    return (
+        <div className="App">
+            <h1>ToDo App</h1>
+            <TodoInput todo={todo} setTodo={setTodo} addTodo={addTodo}/>
+            <TodoList list={todos} remove={deleteTodo} done={doneTodo}/>
+        </div>
+    );
 }
 
 export default App;
