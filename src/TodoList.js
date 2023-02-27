@@ -13,16 +13,15 @@ const TodoList = ({list, remove, done }) => {
                             <li key={entry.id} className={ !entry.status ? "completed" : "todo"}> {entry.title}</li>
 
                             <button className="delete-button"
-                                    /*onClick={() => {remove(entry)*/
                                     onClick={() => {remove(entry.id)
                             }}
-                            ><FontAwesomeIcon icon={faTrash}/>
+                            ><FontAwesomeIcon icon={faTrash} size="sm"/>
                             </button>
                             <button className="delete-button"
                                     onClick={() => {done(entry.id)
                             }}
                             >{
-                                entry.status ? <FontAwesomeIcon icon={faLockOpen}/> : <FontAwesomeIcon icon={faLock}/>
+                                entry.status ? <FontAwesomeIcon icon={faLockOpen} size="sm"/> : <FontAwesomeIcon icon={faLock} size="sm"/>
                             }
                             </button>
                         </div>)) }

@@ -24,7 +24,6 @@ function App() {
         },
     ]);
 
-    //console.log(todos)
     const addTodo = () => {
         if (todo !== "") {
             setTodos(
@@ -45,7 +44,7 @@ function App() {
 
     const doneTodo = (id) => {
         const newTodos = todos.filter(todo => {
-            if (todo.id == id) {
+            if (todo.id === id) {
                 todo.status = !todo.status;
             }
             return todos;
