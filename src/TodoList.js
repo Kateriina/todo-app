@@ -10,7 +10,8 @@ const TodoList = ({list, remove, done }) => {
                 <ul className="todo-list">
                     {list.map((entry) => (
                         <div className="todo">
-                            <li key={entry.id} className={ !entry.status ? "completed" : "todo"}> {entry.title}</li>
+                            <li key={entry.id} className={ !entry.status ? "completed" : "todo"} onClick={() => {done(entry.id)
+                            }}> {entry.title}</li>
 
                             <button className="delete-button"
                                     onClick={() => {remove(entry.id)
