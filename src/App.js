@@ -9,17 +9,17 @@ function App() {
     const [todos, setTodos] = useState([
         {
             id: 1,
-            title: 'Sleep',
+            title: 'Прочитать книгу',
             status: true
         },
         {
             id: 2,
-            title: 'Work',
+            title: 'Пробежать марафон',
             status: true
         },
         {
             id: 3,
-            title: 'Read',
+            title: 'Оформить портфолио',
             status: false
         },
     ]);
